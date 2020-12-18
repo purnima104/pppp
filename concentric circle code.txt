@@ -1,0 +1,23 @@
+var circles = 10;
+
+function setup(){
+  createCanvas(400,400);
+  noStroke();
+  colorMode(HSB,circles,100,100);
+}
+function draw(){
+  background(255);
+  flower(mouseX, mouseY);
+  flower(mouseX,height-mouseY);
+}
+
+
+var flower = function(x, y) {
+  for (var total = circles-1; total >= 0; total--) {
+    
+    var diameter = ((20 + (total * 10)) + frameCount) % 200;
+    
+    fill(total,100,100);
+    ellipse(x,y, diameter, diameter);
+  }
+};
